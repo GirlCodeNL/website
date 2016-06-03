@@ -26,14 +26,18 @@
 
 <template name="base64">
   <h2>Setting up the images</h2>
+  <p>
+    To be able to send an image via the browser we have to convert it in the correct format. So in this step we are going to encode the image with base64. This actually
+     converts an image which is made up out of bytes into text. In this way it easily can be send via the browser. So let's get started.
+  </p>
   <p>Encode image to base64 and copy data to clipboard by running the following code from your command line (edit the path to image):</p>
   {{#prism language="javascript" class="line-numbers"}}
-    base64 &lt; &lt;my-image.jpg&gt;
+    base64 &lt; &lt;/path/to/my-image.jpg&gt;
   {{/prism}}
   <p>This code generates a <code>base64</code> encoded image from your input.</p>
   <p>You can also generate a file with the ouput so that you can easily use this code later. Modify the code above (if you are using Mac or Linux) like this:</p>
   {{#prism language="javascript" class="line-numbers"}}
-    base64 &lt; &lt;my-image.jpg&gt; &lt; output.txt
+    base64 &lt; &lt;/path/to/my-image.jpg&gt; &gt; output.txt
   {{/prism}}
   <p>If you are using Windows or are not comfortable with command line, you can use the <a href="https://www.base64-image.de/">online base64 generate tool</a></p>
 </template>
@@ -112,4 +116,8 @@
     <li>Puzzle to recognize lanmark in your photo</li>
   </ul>
   <p>If you are interested in Machine Learning technologies and Google Cloud Platform, please read further about <a href="http://cloudacademy.com/blog/google-prediction-api">Google Prediction API</a>.</p>
+  <p>
+    Get started with your own webapp look into this github repository for an example:
+    <a href="https://github.com/girlqode/vision-api">https://github.com/girlqode/vision-api</a>
+  </p>
 </template>
