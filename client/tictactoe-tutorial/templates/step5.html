@@ -1,0 +1,54 @@
+<template name="step5">
+  <h1>Display an X</h1>
+  <p class="flow-text">In this step, we will use the click event we registered in the previous step to display a value in our interface.</p>
+  <h2>Add a "player" to a box</h2>
+  <p>We will add a <code>player</code> variable to the "box" template in the html file.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    &lt;template name=&quot;box&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;&#123;&#123;player&#125;&#125;&lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+  <p>We will set the value for this variable in the helper of this template in the js file.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.helpers({
+      player: function(){
+        return 'X';
+      }
+    });
+  {{/prism}}
+  <p>You now should see that every box is filled with an 'X'. That is not exactly what we want. So how do we only show an 'X' if you click on a box?</p>
+
+  <h2>Using the collection</h2>
+  <p>Previously we have created a Collection called 'Boxes'. There is nothing stored in it really. That is going to change. So the idea is to add a player to the collection everytime you click on a box.</p>
+  <p>In order to set a player on a box, add the following code to the click event in the box template:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Boxes.update(this._id, { $set: { player: 'X' } });
+  {{/prism}}
+  <p>Meteor's Collections come with a few methods, like <code>.create()</code>, <code>.insert()</code>, <code>.remove()</code> and <code>.update()</code>. Read more about Collection methods in Meteor <a href="http://docs.meteor.com/#/full/collections">here</a>.</p>
+  <p>Let's have a look at the second part of this method: <code>this._id</code>. The <code>Boxes</code> Collection needs to know which record (item) to update, so the <code>id</code> is a unique identifier assigned to each record.</p>
+  <p>How do we know the <code>id</code>? Remember, in step 4, when we clicked on the box, we had access to <code>this</code> which - in the context of the click event - refers to the box we clicked on. <code>this._id</code> gives us the identifier of that box within the Collection.</p>
+  <p>Now, the third part of the <code>update</code> method. You can perform various operations on each item when updating a collection, like <code>$set, $unset, $rename</code>, etc. See detailed description <a href="https://docs.mongodb.org/manual/reference/operator/update/">in Mongo documentation</a>.  When using <code>$set</code>, we add a field to the record, in our case field called <code>player</code>.</p>
+  <p>Later we will fill this field dynamically, but for now we just add the <code>string</code> 'X' into it. </p>
+  <p>The code to set the player symbol (we called it <code>player</code>, but you can use whatever name you consider fit in this case) should look something like this:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.events({
+      click: function(){
+        Boxes.update(this._id, {$set: { player: 'X' } });
+      }
+    });
+  {{/prism}}
+  <p>What we display in the <code>html</code> will be this <code>player</code> property of the box we just added. So it will only appear if it exists.</p>
+
+  <p>For returning the player in the collection add the following to the box helpers you just have created:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    return this.player;
+  {{/prism}}
+  <p>The keyword <code>this</code> is reffering in this case to the box. Remember the context story in the previous step?</p>
+  <p>So now we should see that there is only one 'X' shown when you have clicked on a box. Like this:</p>
+  <video src="/click.mov" autoplay controls="true"></video>
+
+  {{> summary}}
+  <p>We now know how to update a Collection in Meteor and display the changes in the <code>html</code>.</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step5"}}
+  <p>In the next step we will build a way to swtich between 'X' and 'O'. That is, return the player of the item in the collection and not always a <code>string</code> 'X'.</p>
+</template>

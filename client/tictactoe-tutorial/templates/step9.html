@@ -1,0 +1,45 @@
+<template name="step9">
+  <h1>Restart the game</h1>
+  <p class="flow-text">
+    We want to restart the game with a button, so that we can start a new game if there is a winner or just because.
+  </p>
+  <h2>Adding a button</h2>
+  <p>
+    That shouldn't be that hard. So first add a button to the html at the bottom of the gameboard template:
+  </p>
+  {{#prism language="javascript" class="line-numbers"}}
+    <button class="reset-game" type="button">Reset game</button>
+  {{/prism}}
+
+  <h2>Detecting the click event</h2>
+  <p>How can we make sure that only the  press on the reset button and not every click on the gameboard will reset the game?</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.gameboard.events({
+      'click .reset-game': function() {
+        resetGame();
+      }
+    });
+  {{/prism}}
+  {{> infobutton ref="note6" text="Previously we haven't used the single quote to define the click event. But now that we use also a class to define which element has been clicked, we needed to add the single quotes. You can use double quotes, just be consistent."}}
+  <p>The way to add an event on an element within a template is to reference it after you state which event you want to handle. In this case, we want to handle the click event on the element with classname <code>reset-game</code>.</p>
+  {{> infobutton ref="note5" text="The elements of html make up the DOM which has its own API. <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors\">Read more about it on MDN</a>."}}
+
+  <h2>Reseting the game</h2>
+  <p>The <code>resetGame</code> function should set all player values of each box to <i>nothing</i>, which in javascript is <code>null</code>. Read more about <code>null</code> on <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/null">MDN</a></p>
+  <p>The steps should be:</p>
+  <ul class="listing">
+    <li>find all boxes with <code>Boxes.find().fetch()</code></li>
+    <li>Loop over the boxes with <code>for (var i = 0; i &lt; boxes.length; i++){...}</code></li>
+    <li>Update each box with <code>Boxes.update(...)</code></li>
+    <li>To always start with the same player, set the player in the <code>Session</code> variable with <code>Session.set('player', ...)</code></li>
+  </ul>
+  <p>
+    Note: Remember to use the <code>console.log(...)</code> to debug your code.
+  </p>
+
+  {{>summary}}
+  <p>We have added a reset button to the game. Yeah :D</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step9"}}
+  <p>In the next step, we will make the code more robust. And make it a little bit nicer. We've learnt a lot of stuff now, so let's see if you can figure out the next steps on your own.</p>
+
+</template>

@@ -1,0 +1,64 @@
+<template name="step7">
+  <h1>Disable the box when it's filled</h1>
+  <p class="flow-text">In this step, we will disable the box if there is a player in it (if it is already filled).</p>
+  <p>In the last step, we were checking if some condition was met, in javascript. Meteor and its templating engine make it possible to perform the same operation also in <code>html</code></p>
+  <p>Do you remember the <code>handlebars</code> syntax we already used to include a template or to iterate over items in an array:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    &#123;&#123;#each&#125;&#125;
+      &#123;&#123;&gt; template &#125;&#125;
+    &#123;&#123;/each&#125;&#125;
+  {{/prism}}
+  <p>You can use the same syntax to check if a condition is met, in your template. This condition should be made available for the template within its <code>helpers</code>, like we already made <code>player</code> available for display in the box.</p>
+
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.helpers({
+      'disabled': function () {
+        //if the box is filled, we cannot click there anymore
+        return this.player;
+      }
+    });
+  {{/prism}}
+
+  {{#prism language="javascript" class="line-numbers"}}
+    &lt;template name="box"&gt;
+      &lt;div class="box">
+        &#123;&#123;#if disabled&#125;&#125; No clicking! &#123;&#123;/if&#125;&#125;
+        &#123;&#123;player&#125;&#125;
+      &lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+  <p>We only want to update the Collection (i.e., set a new property <code>player</code> to the box we just clicked) <strong>if</strong> the box is empty. In order to disable clicking on the box, we should add some code in the javascript where we update the Boxes collection on click. If the box is not empty (there already is a property), just do nothing.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    if(box.player) {
+      return; //do nothing
+    }
+    //otherwise, update the collection
+    ...
+  {{/prism}}
+  <h2>Make the box visually <i>disabled</i></h2>
+  <p>So the user cannot click in the box (which is not completely true: the user <i>can</i> click in the box, but nothing just happens), but we would like to let the user know that current box is <i>taken</i>. You can add a classname <code>disabled</code> to the box if the condition is met, like we've seen above. The provided stylesheet ensures the user will get visual feedback.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    &lt;template name="box"&gt;
+      &lt;div class="box &#123;&#123;#if disabled&#125;&#125; disabled &#123;&#123;/if&#125;&#125;">&#123;&#123;player&#125;&#125;&lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+  <p>Eventually, you should end up with this code in your javascript:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.events({
+      click: function() {
+        var boxFilled = this.player;
+        if (boxFilled) {
+          return;
+        }
+        var player = Session.get('player');
+        Boxes.update(this._id, { $set: { player: player } });
+      }
+    });
+  {{/prism}}
+
+  {{> summary}}
+  <p>In this step, we learnt to  use the <code>if</code> statements within our templates.</p>
+  <p>We also know that <code>return</code> without parameters effectively just does nothing.</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step7"}}
+  <p>In the next step, we will determine if the game has a winner.</p>
+</template>

@@ -1,0 +1,74 @@
+<template name="step8">
+  <h1>Do we have a winner?</h1>
+  <p class="flow-text">In this step, we will be detecting if we have a winner, on each click on a box.</p>
+  <p>Let's try to determine the rules in plain English, this is what we call <code>pseudo code</code>.</p>
+  <p>Here it goes: if we have three same values in one row / column / diagonal, we have a winner. This is what wikipedia says about it:</p>
+  <blockquote cite="https://en.wikipedia.org/wiki/Tic-tac-toe">
+    The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.
+  </blockquote>
+  <p>Can you think of (or draw) the possible winning combinations? (The above wikipedia article has them all drawn out for you)</p>
+  <p>Box 0, box 1 and box 2 form one row. Box 0, box 3 and box 6 form a column. Box 0, box 4 and box 8 form a diagonal. And so on for all the possible combinations (there are 3 for rows, 3 for columns and 2 for diagonals, for each symbol).</p>
+  <p>This can be translated into code:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+  var hasWon = function() {
+    var boxes = Boxes.find().fetch(); //make a plain Array of our Collection
+    if (boxes[0].player == 'X' && boxes[1].player == 'X' && boxes[2].player == 'X') {
+      return true; //we have a winner
+    }
+    if (boxes[3].player == 'X' && boxes[4].player == 'X' && boxes[5].player == 'X') {
+      return true; //we have a winner
+    }
+    //etc...
+    return false; //otherwise, there is no winner
+  }
+  {{/prism}}
+  <p>We are making a function that we call <code>hasWon</code> that looks at the gameboard and returns a <code>boolean</code> value if there is a winner.</p>
+  {{> infobutton ref="note4" text="<code>Boolean data type</code>, in computer science, is a data type, having two values (usually denoted <code>true</code> and <code>false</code>), intended to represent the truth values of logic and Boolean algebra."}}
+  <p>Whether we have a winner is called the <code>state</code>. Another example of a state in our game is whether a box is filled or empty.</p>
+
+  <h2>Let's optimize</h2>
+  <p>We ended up copying and pasting 16 combinations, because there would be 8 comparisons with 'X' and 8 comparisons with 'O'. Remember when we were trying to display 9 boxes in our grid we did not want to do this copying and pasting?</p>
+  <p>We can begin with using the variable we made for the current player symbol. This should reduce our code to 8 lines.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    var player = Session.get('player');
+  {{/prism}}
+  <p>And use it to compare it with the player values in the boxes.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    boxes[0].player == player
+  {{/prism}}
+
+  <p>Your function should look like this</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    var hasWon = function() {
+      var boxes = Boxes.find().fetch();
+      var player = Session.get('player');
+      if(boxes[0] && boxes[0].player) {
+        if (boxes[0].player == player && boxes[1].player == player && boxes[2].player == player) {
+          return true;
+        }
+        if (boxes[3].player == player && boxes[4].player == player && boxes[5].player == player) {
+          return true;
+        }
+        //... 6 more rules
+      }
+      return false;
+    };
+{{/prism}}
+<p>You can check if someone has won in box's click event handler. Make sure that the function is called <i>after</i> you have updated the Collection, but <i>before</i> you switch players.</p>
+{{#prism language="javascript" class="line-numbers"}}
+  var sessionPlayer = Session.get('player');
+  Boxes.update(this._id, { $set: { player: sessionPlayer } });
+  if(hasWon()) {
+    console.log("Player", sessionPlayer, "has won");
+    //react to the winning state
+  } else {
+    console.log('Player', sessionPlayer, 'has NOT won');
+    setNextPlayer(); //update the player
+  }
+{{/prism}}
+
+{{>summary}}
+<p>We added the game logic by using <code>pseudo code</code>. We optimized our code by using Session variable.</p>
+{{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step8"}}
+<p>In the next step, we will add a reset button to empty our gameboard.</p>
+</template>

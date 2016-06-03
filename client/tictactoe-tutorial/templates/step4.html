@@ -1,0 +1,44 @@
+<template name="step4">
+  <h1>Click on the box</h1>
+  <p class="flow-text">In this step, we will register the click event on the box.</p>
+  <h2>Template events</h2>
+  <p>We will be using the template events. You can read about them in the <a href="http://docs.meteor.com/#/full/template_events">documentation</a></p>
+  <p>We already know how to add helpers to a template. Now we will add events, and the syntax should look familiar by now:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.events({
+      click: function(){
+        //do something here
+      }
+    });
+  {{/prism}}
+
+  <h2>Logging the clickevent</h2>
+  <p>Try to display in the console which box you have clicked - either by referencing the event target or by using the <code>this</code> keyword. Read more about <code>this</code> on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN</a></p>
+  {{> infobutton ref="note3" text="<code>This</code> is always related to the context of \"where you are\" at this moment."}}
+  {{#prism language="javascript" class="line-numbers"}}
+    &lt;template name="box"&gt;
+      &lt;div class=&quot;box&quot;&gt;Test&lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.box.events({
+      click: function(event){
+        console.log(event, this);
+      }
+    });
+  {{/prism}}
+  <p>
+    <figure>
+      <img src="/console.png">
+      <figcaption>This is what the above code does</figcaption>
+    </figure>
+  </p>
+
+  <p>We don't have anything inside this button, so <code>this</code> gives us an <code>Object</code> with only an <code>_id</code> in it. Notice that every box has a different <code>_id</code>.</p>
+  {{> summary}}
+  <p>We now know how to register a click event on an element with the template, or on the template itself (as our <code>box</code> template consists only of 1 <code>&lt;div&gt;</code> element)</p>
+  <p>We also learned about <code>this</code> keyword that refers to the context.</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step4"}}
+  <p>In the next step, we will display some value in our interface after we clicked on a box.</p>
+</template>

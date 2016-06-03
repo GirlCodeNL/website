@@ -1,0 +1,25 @@
+<template name="tictactoe-tutorial">
+  <div class="page-container">
+    {{> index}}
+  </div>
+  {{> footer}}
+</template>
+
+<template name="index">
+  {{> mainnav}}
+  {{> Template.dynamic template=tab data=tabData}}
+</template>
+
+<template name="mainnav">
+  <nav class="main-nav">
+    <ul class="list-plain horizontal">
+      {{#each routes}}
+        {{> navItem this}}
+      {{/each}}
+    </ul>
+  </nav>
+</template>
+
+<template name="navItem">
+  <li class="{{activeClass}}"><button type="button" class="waves-effect waves-light btn">{{this}}</button></li>
+</template>

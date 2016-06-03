@@ -1,0 +1,35 @@
+<template name="step1">
+  <h1>Editing the template</h1>
+  <p class="flow-text">In this step, we will edit the <code>html</code> that comes with the installation of Meteor. In Atom, open the <code>tictactoe.html</code> file.</p>
+  <h2>Add some styling</h2>
+  <p>In order to see the nice font we used in the demo, add the following rule in the <code>&lt;head&gt;</code> of your html file:</p>
+  <pre>&lt;link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css"&gt;</pre>
+  <p>We also provided the styling for this workshop, so you don't have to worry about it. To use it, copy the content of
+    <a href="https://gist.githubusercontent.com/afkatja/760a084db19c8543b4bd/raw/ac5ee861595e764bb71e24fb9b56f6db769a20ed/tictactoe.css">this file</a> into the <code>tictactoe.css</code>. Do not worry about referencing the css file in your <code>html</code>, meteor does it automatically.</p>
+  <h2>Edit the template</h2>
+  <p>You can now rename the <code>template</code>, for example <code>&lt;template name="gameboard"&gt;&lt;/template&gt;</code> instead of the <code>hello</code> template.</p>
+  <p>Insert some element into this template. You can begin with <code>&lt;div class="gameboard"&gt;&lt;/div&gt;</code>.</p>
+  <p>Test it now at <a href="http://localhost:3000">http://localhost:3000</a>. You should see a nice green schoolboard.</p>
+  <p>You can now add <code>&lt;div class="box"&gt;&lt;/div&gt;</code> into the <code>gameboard</code> template, so that your <code>html</code> looks like this:</p>
+    {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    &lt;head&gt;
+      &lt;title&gt;Welcome to the workshop tictactoe&lt;/title&gt;
+      &lt;link href=&quot;https://fonts.googleapis.com/css?family=Amatic+SC:700&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;h1&gt;Welcome to the workshop tictactoe&lt;/h1&gt;
+      &#123;&#123;&gt; gameboard&#125;&#125;
+    &lt;/body&gt;
+
+    &lt;template name=&quot;gameboard&quot;&gt;
+      &lt;div class=&quot;gameboard&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+
+  {{> summary}}
+  <p>We've seen that <code>html</code> is responsible for displaying content and <code>css</code> helps you style that content.</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step0"}}
+</template>

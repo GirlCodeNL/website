@@ -1,0 +1,72 @@
+<template name="step3">
+  <h1>Display the grid!</h1>
+  <p class="flow-text">In this step, we will link javascript and html together.</p>
+  <h2>The syntax</h2>
+  <p>We already saw this syntax in our <code>html</code>:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    &#123;&#123;&gt; hello&#125;&#125;
+  {{/prism}}
+  <p>The use of double-curly braces is called <code>spacebars</code> syntax and is a way of referencing templates or javascript objects in your <code>html</code>.</p>
+  <blockquote cite="http://meteortips.com/first-meteor-tutorial/templates/">
+    ... Spacebars is the syntax we use in our HTML when we want something dynamic to occur. It’s the syntax that bridges the gap between the interface and the application logic.
+  </blockquote>
+  <h2>Templates</h2>
+  <p>Let's look at our javascript code, the client side. In <code>html</code>, we had the <code>template</code> with the <code>name</code> "hello". We referenced it in javascript like this:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Template.hello
+  {{/prism}}
+  <p>You can read more about templates in Meteor <a href="https://www.discovermeteor.com/blog/a-guide-to-meteor-templates-data-contexts/">on this blog</a> where you can find a lot more articles about Meteor.</p>
+  <p>There are events and helpers objects for every template that is made in the html. The <code>hello</code> template is not there anymore. Now you can change the functions so that the new templates are used.</p>
+  <p>Create a "box" template and include it into the "gamboard" template just like the gameboard is included into the body of the html.</p>
+  <p>You should now have this result:</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    &lt;template name=&quot;gameboard&quot;&gt;
+      &lt;div class=&quot;gameboard&quot;&gt;
+        &#123;&#123;&gt; box&#125;&#125;
+      &lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template name=&quot;box&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/template&gt;
+  {{/prism}}
+
+  <h2>Iterate through our Collection</h2>
+  <p>In the javascript code, add a helper function called <code>'boxes'</code> which should return the whole boxes collection.</p>
+  <p><code>Boxes.find({})</code> will do the trick.</p>
+  <p>You should now have this in your javascript:</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    Template.gameboard.helpers({
+      boxes: function(){
+        return Boxes.find({});
+      }
+    });
+  {{/prism}}
+  <p>In the html wrap the box into an <code>&#123;&#123;#each&#125;&#125;</code> function to loop over the boxes, like this:</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    &#123;&#123;#each boxes&#125;&#125;
+      &#123;&#123;&gt;box&#125;&#125;
+    &#123;&#123;/each&#125;&#125;
+  {{/prism}}
+  <p>You can see the <a href="https://www.meteor.com/tutorials/blaze/templates">example</a> given on the meteor introduction page to get an idea how to do that.</p>
+
+  <p>
+    <figure>
+      <img src="/gameboard.png" alt="">
+      <figcaption>You should now see 9 boxes in the gameboad.</figcaption>
+    </figure>
+  </p>
+  {{> summary}}
+  <ul class="listing">
+    <li>
+      <p>After creating a template, we need to manually include it within the interface.</p></li>
+    <li>
+      <p>By creating helper functions, we can execute code from within a template, which means we are creating a dynamic interface. </p>
+    </li>
+    <li>
+      <p>If a helper function returns an array of data or a Collection, we can loop through that data from within a template using the <code>each</code> syntax.</p>
+    </li>
+  </ul>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step3"}}
+  <p>In the next step, we will be registering the click event on each box on the gameboard.</p>
+</template>

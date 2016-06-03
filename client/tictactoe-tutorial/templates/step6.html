@@ -1,0 +1,73 @@
+<template name="step6">
+  <h1>Switch between players</h1>
+  <p class="flow-text">In this step, we will try to alternate "X" and "O" on each click.</p>
+  <p> We need to have a global variable that stores the currect player. A variable that will be updated everytime a box is clicked.</p>
+  <h2>Session</h2>
+  <p>We will use Meteor's <a href="http://docs.meteor.com/#/full/session">Session</a> to store the currect player.</p>
+  <blockquote cite="http://meteortips.com/first-meteor-tutorial/sessions/">
+    ...sessions allow us to store small pieces of data that is not saved to the database and won’t be remembered on return visits
+  </blockquote>
+  <p>The syntax is simple:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Session.set(name, value);
+  {{/prism}}
+  <p>The name of the session (must be a <code>string</code>) will be used for reference, like this:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Session.get(name);
+  {{/prism}}
+  <p>Session is independent of templates or events. When a Session variable is set in one template, you can also use it in other templates. Session belongs in the Client part of the code.</p>
+
+  <h2>Set and get the player</h2>
+  <p>We will start by intializing the Session on start up of the client. Like this:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+  if (Meteor.isClient) {
+    Session.set('player', 'X');
+  {{/prism}}
+  <p>Now everytime the collection is updated, the Session variable should be used.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    var sessionPlayer = Session.get('player');
+    Boxes.update(this._id, { $set: { player: sessionPlayer } });
+  {{/prism}}
+  <p>Notice the <code>var</code> in front ot the <code>sessionPlayer</code>. That is how local variables are defined. In contrast to Session variables, which are available in the whole client code, local variables (defined with a <code>var</code>) are only available within the context they are defined in. The curly brackets <code>{ }</code> define the context.</p>
+  <p>Local variables are often used to structure code and make it more readable. You probably will see these variables a lot. So look out for the <code>var</code>. If you define a local variable, give it a name that makes sense. Also not some abreviation, which might makes sense at the moment. In this way other people who will read your code can easily understand your code.</p>
+
+  <h2>Do the switch</h2>
+  <p>Now we need to see which symbol is currently in use and swap it for another.</p>
+  <p>The easiest way to do this is to use <code>if</code> statements to compare values:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    if(someValue == anotherValue) {
+      //do something
+    }
+  {{/prism}}
+  <p>See the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">MDN</a> page for more exmamples on <code>if</code>. Try to set another value to the Session by using the <code>if</code> statement and <code>Session.get()</code> and <code>Session.set()</code>.</p>
+  <p>Eventually, your code should look something like this:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    if(Session.get('player') == 'X') {
+      Session.set('player', 'O');
+    }
+  {{/prism}}
+  <p>This code won't do anything if the player is 'O', so we need to add another condition: <code>else</code></p>
+  {{#prism language="javascript" class="line-numbers"}}
+    if(Session.get('player') == 'X') {
+      Session.set('player', 'O');
+    } else {
+      Session.set('player', 'X');
+    }
+  {{/prism}}
+  <p>For readability you might want to wrap this code in a separate function.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    var setNextPlayer = function(){
+      ...
+    }
+  {{/prism}}
+  <p>Call this function after you have updated the collection (<code>Boxes.update(...)</code>).</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    setNextPlayer();
+  {{/prism}}
+  <p>Have you noticed that when you click a box twice, the symbol in the box will change? That makes sense, because everytime you click the box, the player property of the box is  defined again. So in the next step we will disable clicking on a box when there is already a player set.</p>
+  {{> summary}}
+  <p>We now know how to use a Meteor Session.</p>
+  <p>We learned about <code>if</code> statements.</p>
+  <p>We can now define functions, local variables and how to use them.</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step6"}}
+</template>

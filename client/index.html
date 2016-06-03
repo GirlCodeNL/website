@@ -1,0 +1,38 @@
+<head>
+  <title>Vision API tutorial</title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic|Inconsolata|Amatic+SC:400,700">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  {{> nav}}
+  {{> content}}
+</body>
+
+<template name="nav">
+  <nav class="site-nav">
+    <ul>
+      <li><a class="{{activeClass 'welcome'}}" href="/">Home</a></li>
+      <li><a class="{{activeClass 'tictactoe-tutorial'}}" href="/tutorials/tictactoe-tutorial">Tictactoe</a></li>
+      <li><a class="{{activeClass 'vision-api-tutorial'}}" href="/tutorials/vision-api-tutorial">Vision API</a></li>
+    </ul>
+  </nav>
+</template>
+
+<template name="content">
+  {{> Template.dynamic template=tutorial}}
+</template>
+
+<template name="welcome">
+  <h1>Welcome to GirlCode tutorials</h1>
+  <p>Here you will find the tutorials for the workshops we host during our GirlCode meetups, slides and demos.</p>
+
+  <ul>
+    <li><a href="/tutorials/tictactoe-tutorial">Tictactoe</a></li>
+    <li><a href="/tutorials/vision-api-tutorial">Vision API</a></li>
+  </ul>
+
+</template>

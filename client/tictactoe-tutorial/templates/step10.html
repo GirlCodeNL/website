@@ -1,0 +1,40 @@
+<template name="step10">
+  <h1>Show the winner and stop the game</h1>
+  <p class="flow-text">In this step, we want to display that we have a winner.</p>
+  <p>There should also be a reminder whose turn it is. And finally, we should not be able to add a symbol when a winner is defined.</p>
+  <p>Try to figure out things on your own. So in this last step, we only describe the features that we want you to implement to make this tictactoe game really awesome. But if you are stuck, don't worry: the tutors are here to help you. Google is also your friend. Have you heard about <a href="http://stackoverflow.com/">stackoverflow</a>? This is the site where every programmer can find answers. The chances are high that somebody else has had the same question before. So search for your question and see if you can find something on stackoverflow or some other place on the web.</p>
+  <p><strong>Tip:</strong> ignore answers from <a href="http://www.w3schools.com/">w3schools</a>. If you want to know why, find out the background <a href="http://www.w3fools.com/">here</a>.</p>
+  <p>We already mentioned <a href="https://developer.mozilla.org/en-US/">MDN</a>, which is one of the best places to find documentation of html, css and javascript features with examples and browser support.</p>
+  <p>And if you want to see how we solved the following problems you can look at <a href="https://github.com/afkatja/tictactoe/tree/master/tictactoe-final">our final version of the code</a>, but please try it on your own first, that is the best way to learn things. So let's start mind bending :)</p>
+  <h2>Show the state of the game</h2>
+  <p>The idea is that there should be a message at the top of the gameboard which tells the players whose turn it is. When there is a winner the text should represent that too.</p>
+  <p>Can you think of the substeps on your own? How can you display the text in html and how can you change it dynamically? Can you reuse some variables you have created earlier in this tutorial?</p>
+  <h2>Stop the game</h2>
+  <p>Maybe you have noticed that users can still add symbols to the gameboard although there has been a winner. Can you think about a way to prevent this? Some code should not be executed when there is a winner, right? Which code is that?</p>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step10"}}
+
+  <h2>Some more ideas</h2>
+  <p>There are plenty more ways you could improve the game. You might want to add some styling or some animations. You might want to play a sound when there is a winner.</p>
+  <p>Meteor provides great opportunities to make this game multiplayer like it is done <a href="http://tictactoe.meteor.com/">here</a>. This version of tictactoe can be played with a person who is sitting behind a computer somewhere around the world. </p>
+  <p>Meteor makes it also quite easy to build your own <a href="https://www.meteor.com/tutorials/blaze/running-on-mobile">mobile app</a>.</p>
+
+  <h2>Finally</h2>
+  <p>We are pretty much at the end of this tutorial. A lot of thanks for joining this tutorial and of course girlcode :) We had a lot of fun creating this tutorial and we hope that you have also enjoyed doing it.</p>
+  {{> infobutton ref="note7" text="You might have guessed that we built this tutorial in Meteor."}}
+  <h3>What is next best step to do now?</h3>
+  <p>There are millions of answers to that, but probably the best option is to keep on going. Here is a list of links with other tutorials from beginner to advanced, there should be something of interest:
+    <ul class="listing">
+      <li><a href="https://www.khanacademy.org/">Khanacademy:</a> Nice combination of videos and Tutorials.</li>
+      <li><a href="https://www.codecademy.com/">Codeacacdemy</a></li>
+      <li><a href="http://guide.meteor.com/">Meteor Guide</a></li>
+      <li><a href="https://www.coursera.org/">Coursera:</a> a lot of courses from Universities all over the world.</li>
+      <li><a href="https://www.codeschool.com/">Code School</a></li>
+      <li><a href="http://itunes.stanford.edu/">Stanford University provides some of the lessons for free via iTunes</a></li>
+      <li><a href="http://www.codewars.com/">Code Wars: achieve code mastery through challenge.</a></li>
+    </ul>
+  </p>
+
+  <h2>See ya on the next girlcode event :)</h2>
+  <p>Keep an eye on the <a href="http://www.meetup.com/girlcode/">meetup group</a>, follow our <a href="https://q42.com/girlcode">blog</a> for more workshops and tips.</p>
+
+</template>

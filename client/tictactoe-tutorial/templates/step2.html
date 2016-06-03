@@ -1,0 +1,98 @@
+<template name="step2">
+  <h1>More boxes!</h1>
+  <p class="flow-text">In this step, we will be creating the grid (or matrix) for our gameboard. In Atom, open the <code>tictactoe.js</code> file.</p>
+  <p>There is currently only one box on our gameboard. For tictactoe we need 9 of them. But we don't want to write 9 <code>div</code>s in our code, do we?</p>
+
+  <h2>Create a collection</h2>
+  <p>Because we are using Meteor, we will use something built in, which is called <code>Collection</code>. Read more about Collections <a href="http://docs.meteor.com/#/full/mongo_collection">here</a>. The Collection will be the place to store all the boxes.</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    Boxes = new Mongo.Collection('boxes');
+  {{/prism}}
+  <p>Place this at the top of the <code>js</code> file. </p>
+  <p>In order to make 9 boxes, you need to use a <code>loop</code>, like this:</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+  for(var i = 0; i &lt; 9; i++){
+    //do something here
+  }
+  {{/prism}}
+  <p>Read more about the javascript loop <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/for">here</a>.</p>
+  <h2>Populate the collection</h2>
+  <p>In the server code you can fill the collection.</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    //fill 9 cells
+    if(Boxes.find({}).count() === 0) {
+      for(var i = 0; i &lt; 9; i++){
+        Boxes.insert({});
+      }
+    }
+  {{/prism}}
+  <p>We add the collection on the server code so that it is created only once. You can read about Client and Server parts of Meteor application <a href="https://www.discovermeteor.com/blog/what-goes-where/">here</a>.</p>
+  <blockquote cite="http://meteortips.com/first-meteor-tutorial/templates/">
+    When the code is executed on the server, a collection is created inside the Mongo database. This is where our data is stored. When the code is executed from inside the user’s web browser though — on the client-side — a local copy of that collection is created on that user’s computer. As a result, when the user interacts with the database, they’re actually interacting with their local copy. This is partly why Meteor applications are real-time by default. Data is manipulated on the user’s local machine and then invisibly synced in the background with the server-side database.
+  </blockquote>
+
+  <h2>Display the collection</h2>
+  <p>Try to log to console everytime you add a new item into the collection:</p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    console.log('inserted box with index', i);
+  {{/prism}}
+  <p>
+    If you added the code to the server part, the logs will show in the terminal. You can also access the content of the collection from the client.
+  </p>
+  {{#prism language="javascript" class="line-numbers" data-line="1-2, 4, 5"}}
+    if (Meteor.isClient) {
+      console.log('Boxes', Boxes.find({}).fetch());
+      ...
+  {{/prism}}
+  {{> infobutton ref="note1" text="Note: The <code>Boxes.find({}).fetch()</code> part will get all values in the <code>Boxes</code> Collection."}}
+
+  <p>You can then open the browser's console by right clicking on the page and selecting <code>Inspect</code> and then choosing the <code>Console</code> tab - it looks like this:</p>
+  <figure>
+    <img src="http://blog.teamtreehouse.com/wp-content/uploads/2014/01/dev-tools-console.png">
+    <figcaption>This is the easiest way to debug your code.</figcaption>
+  </figure>
+  <p>We are nearly done with writing server code in our application. Most of the code that we will write, will be Client code.</p>
+
+  <h2>Clear the collection</h2>
+  <p>To make sure that there are always only 9 boxes in the collection we should clear the boxes collection on every startup up of the server. To do that, add the following line to the server part of the javascript code.</p>
+  {{#prism language="javascript" class="line-numbers"}}
+    Boxes.remove({});
+  {{/prism}}
+  <p>So now you should have the following code in your javascript file:</p>
+  {{#prism language="javascript" class="line-numbers"}}
+  if (Meteor.isServer) {
+    Meteor.startup(function () {
+      //just to be sure, we want to begin with a new collection
+      Boxes.remove({});
+      //and fill it with 9 boxes
+      if(Boxes.find().count() === 0) {
+        for(var i = 0; i &lt; 9; i++){
+          Boxes.insert({});
+          console.log('inserted box with index', i);
+        }
+      }
+    });
+  }
+  {{/prism}}
+  {{> infobutton ref="note2" text="Note: You might see some error in the console: <code>Uncaught TypeError: Cannot read property 'helpers' of undefined</code>. Don't worry, we will fix this in the next part."}}
+
+  {{> summary}}
+  <ul class="listing">
+    <li>
+      <p>We now know about Collections within Meteor that allow us to store, retrieve and manipulate data that we can access from our templates.</p>
+    </li>
+    <li>
+      <p>We used the the <code>find()</code> and <code>count()</code> functions on the Collection to return the number of boxes in the <code>Boxes</code> collection.</p>
+    </li>
+    <li>
+      <p>We also know that a Meteor application can run on both the client and the server. We can use the <code>isClient</code> and <code>isServer</code> conditionals to control where the code is run.</p>
+    </li>
+    <li>
+      <p>
+        In this step we mainly dealt with code in the server side part of the javascript file. These will be the only changes we make on this part within this tutorial. In the following steps we will only be dealing with client side code to the javscript file.
+      </p>
+    </li>
+  </ul>
+  {{> examplelink url="https://github.com/afkatja/tictactoe/tree/master/step2"}}
+  <p>In the following step, we will display the boxes we have just made, in our <code>html</code> file.</p>
+</template>
