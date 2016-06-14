@@ -26,10 +26,18 @@
 
 <template name="base64">
   <h2>Setting up the images</h2>
-  <p>
-    To be able to send an image via the browser we have to convert it in the correct format. So in this step we are going to encode the image with base64. This actually
-     converts an image which is made up out of bytes into text. In this way it easily can be send via the browser. So let's get started.
-  </p>
+  <p>To be able to send an image via the browser we have to convert it in the correct format. So in this step we are going to encode the image with base64. This actually converts an image which is made up out of bytes into text. In this way it easily can be send via the browser. So let's get started.</p>
+  <p>To be sure of the resuls, first try one of these images:</p>
+  <ul>
+    <li><img src="/face.jpg" alt="" width="100"> Use: face detection</li>
+    <li><img src="/kristin.jpg" alt="" width="100"> Use: face detection</li>
+    <li><img src="/cat.jpg" alt="" width="100"> Use: label detection</li>
+    <li><img src="/moselle.jpg" alt="" width="100"> Use: landmark detection</li>
+    <li><img src="/so-long.jpg" alt="" width="100"> Use: text detection</li>
+    <li><img src="/staatsloterij-logo.jpg" alt="" width="100"> Use: logo detection</li>
+    <li><img src="/turkishdelight.jpg" alt="" width="100"> Use: safe search detection</li>
+  </ul>
+  <p>It seems that the API only accepts jpg files and they have to be not too large.</p>
   <p>Encode image to base64 and copy data to clipboard by running the following code from your command line (edit the path to image):</p>
   {{#prism language="javascript" class="line-numbers"}}
     base64 &lt; &lt;/path/to/my-image.jpg&gt;
