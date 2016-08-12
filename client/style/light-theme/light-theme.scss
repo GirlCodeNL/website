@@ -1,8 +1,9 @@
+@import '../variables';
 .light-theme {
   $color-overlay-bg: transparentize(#f7f7f7, .2);
   background: linear-gradient(to right, rgba(255,255,255,0) 0%, $color-overlay-bg 20%, $color-overlay-bg 80%, rgba(255,255,255,0) 100%), url(/bg-girlcode.jpg) no-repeat 0 0;
   background-size: 100% 100%;
   blockquote {
-    color: #444;
+    color: $color-text-light-theme;
   }
 }
