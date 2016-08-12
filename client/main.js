@@ -1,4 +1,5 @@
 if(Meteor.isClient) {
+  BlazeLayout.setRoot('.page-container');
   Template.nav.helpers({
     activeClass(page) {
       console.log(FlowRouter.getRouteName(), page);
