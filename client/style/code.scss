@@ -1,0 +1,14 @@
+code, pre, .code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 1em;
+  color: #ccc;
+}
+
+pre[class*=language] {
+  overflow: hidden;
+  background: transparent;
+  font-family: 'Inconsolata', monospace;
+  .line-highlight {
+    display: none;
+  }
+}

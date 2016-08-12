@@ -1,0 +1,14 @@
+.list-plain {
+  list-style: none;
+  padding: 0;
+}
+
+.horizontal {
+  display: flex;
+}
+
+.listing li {
+  list-style-type: disc;
+  padding-left: 10px;
+  margin-left: 20px;
+}

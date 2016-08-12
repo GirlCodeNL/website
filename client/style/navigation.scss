@@ -1,0 +1,67 @@
+@import 'variables';
+
+nav.main-nav {
+  background: none;
+  box-shadow: none;
+  li.active button {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5) inset;
+    color: $color-green-dark;
+  }
+}
+.pagination,
+.main-nav ul {
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+nav.site-nav {
+  background: $color-green;
+  ul {
+    display: flex;
+  }
+  a {
+    border: none; //override materialize styles
+    cursor: pointer;
+    &.active {
+      background: $color-active-nav;
+    }
+    &.has-subnav:hover,
+    &.has-subnav:focus {
+      & + .subnav {
+        display: flex;
+      }
+    }
+  }
+  .subnav {
+    display: none;
+    flex-direction: column;
+    background: mix(#fff, $color-active-nav);
+    li {
+      display: block;
+      a {
+        padding: .5rem;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.pagination {
+  li {
+    padding-right: 0;
+    padding-left: 0;
+    &.active {
+      background: none;
+      button {
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5) inset;
+        color: $color-green-dark;
+      }
+    }
+  }
+  button {
+    background: $color-green;
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+  }
+}
