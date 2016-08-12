@@ -9,33 +9,35 @@
 
 <body>
   {{> nav}}
-  {{> content}}
+  <main>
+    <div class="page-container">
+      <img src="/logo-girlcode.png" alt="GirlCode" class="logo">
+      {{> content}}
+    </div>
+  </main>
 </body>
 
 <template name="nav">
   <nav class="site-nav">
     <ul>
       <li><a class="{{activeClass 'welcome'}}" href="/">Home</a></li>
-      <li><a class="{{activeClass 'about'}}" href="about">About</a></li>
-      <li><a class="{{activeClass 'tictactoe-tutorial'}}" href="/tutorials/tictactoe-tutorial">Tictactoe</a></li>
-      <li><a class="{{activeClass 'vision-api-tutorial'}}" href="/tutorials/vision-api-tutorial">Vision API</a></li>
+      <li><a class="{{activeClass 'about'}}" href="/about">About</a></li>
+      <li><a class="{{activeClass 'tutorials'}} has-subnav" href="/tutorials">Tutorials</a>
+        <ul class="subnav">
+          <li><a class="{{activeClass 'tictactoe-tutorial'}}" href="/tutorials/tictactoe-tutorial">Tictactoe</a></li>
+          <li><a class="{{activeClass 'vision-api-tutorial'}}" href="/tutorials/vision-api-tutorial">Vision API</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </template>
 
 <template name="content">
-  {{> Template.dynamic template=tutorial}}
+  {{> Template.dynamic template=content}}
 </template>
 
 <template name="welcome">
-  <h1>Welcome to GirlCode</h1>
-  <h2>Who are GirlCode</h2>
-  <h2>What do we do</h2>
-  <h2>Tutorials</h2>
-  <p>Here you will find the tutorials for the workshops we host during our GirlCode meetups, slides and demos.</p>
-  <ul>
-    <li><a href="/tutorials/tictactoe-tutorial">Tictactoe</a></li>
-    <li><a href="/tutorials/vision-api-tutorial">Vision API</a></li>
-  </ul>
-
+  <main class="page-container">
+    <h1>Welcome to GirlCode</h1>
+  </main>
 </template>
