@@ -16,6 +16,11 @@ nav.main-nav {
 
 nav.site-nav {
   background: $color-green;
+  .logo {
+    float: right;
+    margin: 10px;
+    width: 100px;
+  }
   ul {
     display: flex;
   }

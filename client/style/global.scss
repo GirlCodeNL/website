@@ -1,5 +1,8 @@
 @import 'variables';
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;
@@ -70,4 +73,9 @@ blockquote {
     position: relative;
     top: 20px;
   }
+}
+
+footer {
+  width: 100%;
+  max-width: 90vw;
 }

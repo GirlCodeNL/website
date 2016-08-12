@@ -11,14 +11,15 @@
   {{> nav}}
   <main>
     <div class="page-container">
-      <img src="/logo-girlcode.png" alt="GirlCode" class="logo">
       {{> content}}
     </div>
+    {{> siteFooter}}
   </main>
 </body>
 
 <template name="nav">
   <nav class="site-nav">
+    <img src="/logo-girlcode.png" alt="GirlCode" class="logo">
     <ul>
       <li><a class="{{activeClass 'welcome'}}" href="/">Home</a></li>
       <li><a class="{{activeClass 'about'}}" href="/about">About</a></li>
@@ -37,7 +38,6 @@
 </template>
 
 <template name="welcome">
-  <main class="page-container">
-    <h1>Welcome to GirlCode</h1>
-  </main>
+  <img src="/logo-girlcode.png" alt="GirlCode" class="logo">
+  <h1>Welcome to GirlCode</h1>
 </template>

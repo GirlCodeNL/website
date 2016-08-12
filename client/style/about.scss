@@ -1,0 +1,43 @@
+@import 'variables';
+
+.about {
+  display: flex;
+  .bio {
+    flex: 1 0 300px;
+    padding: 20px;
+    figure {
+      text-align: left;
+      padding: 0;
+      margin: 0;
+      img {
+        margin: 0;
+      }
+      figcaption {
+        display: block;
+        text-align: left;
+        height: 34px;
+        padding: 10px 10px 0;
+        margin: -40px 0 0 0;
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255,.8));
+        color: $color-text-light-theme;
+        text-shadow: 1px 1px rgba(255,255,255, .6);
+      }
+    }
+    blockquote {
+      display: block;
+      &:after {
+        top: auto;
+        position: static;
+      }
+    }
+  }
+}
+.gallery {
+  flex-wrap: wrap;
+  li {
+    flex: 1 0 300px;
+    padding: 20px;
+  }
+}
