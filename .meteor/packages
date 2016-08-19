@@ -25,3 +25,4 @@ zimme:active-route
 materialize:materialize
 kadira:blaze-layout
 fourseven:scss
+utilities:compile-svg
