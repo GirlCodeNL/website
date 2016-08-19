@@ -73,6 +73,9 @@ blockquote {
     position: relative;
     top: 20px;
   }
+  &.markedup {
+    display: block;
+  }
 }
 
 footer {
