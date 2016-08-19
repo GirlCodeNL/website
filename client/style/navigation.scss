@@ -35,15 +35,23 @@ nav.site-nav {
     &.has-subnav:focus {
       & + .subnav {
         display: flex;
+        position: relative;
+        z-index: 1;
       }
     }
   }
   .subnav {
     display: none;
     flex-direction: column;
-    background: mix(#fff, $color-active-nav);
+    background: $color-green;
+    &.expanded {
+      display: flex;
+      position: relative;
+      z-index: 1;
+    }
     li {
       display: block;
+      float: none;
       a {
         padding: .5rem;
         line-height: 1;
