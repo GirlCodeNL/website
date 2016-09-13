@@ -44,6 +44,9 @@ figure {
     color: $color-green;
     font-size: 12px;
   }
+  & + figure {
+    margin-top: 40px;
+  }
 }
 img {
   margin: 5px;

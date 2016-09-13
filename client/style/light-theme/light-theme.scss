@@ -2,7 +2,17 @@
 .light-theme {
   $color-overlay-bg: transparentize(#f7f7f7, .2);
   background: linear-gradient(to right, rgba(255,255,255,0) 0%, $color-overlay-bg 20%, $color-overlay-bg 80%, rgba(255,255,255,0) 100%), url(/bg-girlcode.jpg) no-repeat 0 0;
-  background-size: 100% 100%;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 0%, #f7f7f7 840px, $color-overlay-bg 90%);
+  }
   blockquote {
     color: $color-text-light-theme;
   }
