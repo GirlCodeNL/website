@@ -2,22 +2,24 @@
 
 .about {
   display: flex;
+  flex-wrap: wrap;
   .bio {
-    flex: 1 0 300px;
+    flex: 1 1 300px;
     padding: 20px;
     figure {
       text-align: left;
       padding: 0;
       margin: 0;
       img {
-        margin: 0;
+        margin: 0 auto;
+        display: block;
       }
       figcaption {
         display: block;
-        text-align: left;
+        text-align: center;;
         height: 34px;
         padding: 10px 10px 0;
-        margin: -40px 0 0 0;
+        margin: -34px 0 0 0;
         position: relative;
         z-index: 1;
         background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255,.8));
@@ -35,6 +37,7 @@
   }
 }
 .gallery {
+  flex-wrap: wrap;
   flex-wrap: wrap;
   li {
     flex: 1 0 300px;
