@@ -17,10 +17,12 @@ if(Meteor.isClient) {
   });
 
   function onClickBody(ev) {
-    let isOnNav = $(ev.target).parents('.subnav').length > 0 || ev.target.classList.contains('has-subnav');
-    if (!isOnNav) {
-      toggleNav();
-    }
+    setTimeout(function(){
+      let isOnNav = $(ev.target).parents('.subnav').length || ev.target.classList.contains('has-subnav');
+      if (!isOnNav) {
+        toggleNav();
+      }
+    }, 1500);
   }
 
   function toggleNav(){

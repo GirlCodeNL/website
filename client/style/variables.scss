@@ -3,3 +3,14 @@ $color-green-dark: #004d40;
 $color-active-nav: transparentize($color-green-dark, .7);
 
 $color-text-light-theme: #444;
+
+@mixin clearfix {
+  overflow: hidden;
+  &::before, &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}

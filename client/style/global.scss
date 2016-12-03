@@ -61,7 +61,6 @@ table {
   }
 }
 
-
 blockquote {
   border-color: $color-green;
   display: flex;
@@ -79,6 +78,11 @@ blockquote {
   }
   &.markedup {
     display: block;
+  }
+  &.floating {
+    float: right;
+    width: 40%;
+    margin-left: 20px;
   }
 }
 

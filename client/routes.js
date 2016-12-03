@@ -2,7 +2,7 @@ FlowRouter.route('/', {
   name: 'welcome',
   triggersEnter: [function () {
     Meteor.defer(function () {
-      document.querySelector('main').classList.add('light-theme').remove('dark-theme');
+      classListHelper(document.querySelector('main')).add('light-theme').remove('dark-theme');
     });
   }],
   action: function(){
@@ -15,7 +15,7 @@ FlowRouter.route('/:pageName', {
   name: 'pages',
   triggersEnter: [function () {
     Meteor.defer(function () {
-      document.querySelector('main').classList.add('light-theme').remove('dark-theme');
+      classListHelper(document.querySelector('main')).add('light-theme').remove('dark-theme');
     });
   }],
   action: function(params){
@@ -28,7 +28,7 @@ FlowRouter.route('/tutorials/:pageName', {
     name: 'tutorials',
     triggersEnter: [function () {
       Meteor.defer(function () {
-        document.querySelector('main').classList.add('dark-theme').remove('light-theme');
+        classListHelper(document.querySelector('main')).add('dark-theme').remove('light-theme');
       });
     }],
     action: function(params) {
