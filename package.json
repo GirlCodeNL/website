@@ -1,0 +1,33 @@
+{
+  "name": "girlcode-website",
+  "version": "1.0.0",
+  "description": "Girl Code website",
+  "main": "main.js",
+  "dependencies": {
+    "medium-sdk": "^0.0.4"
+  },
+  "devDependencies": {
+    "medium-sdk": "0.0.4"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "meteor && run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://afkatja@github.com/GirlCodeNL/website.git"
+  },
+  "keywords": [
+    "girlcode",
+    "girls",
+    "in",
+    "tech",
+    "diversity"
+  ],
+  "author": "Katja Hollaar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GirlCodeNL/website/issues"
+  },
+  "homepage": "https://github.com/GirlCodeNL/website#readme"
+}
