@@ -14,8 +14,16 @@
 }
 
 .social-links {
+  display: flex;
+  justify-content: center;
+  li {
+    margin: 5px;
+  }
   a .icon {
-    width: 14px;
-    height: 14px;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+    object-fit: contain;
   }
 }

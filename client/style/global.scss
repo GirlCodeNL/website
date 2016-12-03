@@ -66,6 +66,7 @@ blockquote {
   border-color: $color-green;
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
   &:after {
     content: "(" attr(cite) ")";
     text-align: right;
@@ -81,7 +82,12 @@ blockquote {
   }
 }
 
-footer {
+footer.page-footer {
   width: 100%;
-  max-width: 90vw;
+  // max-width: 90vw;
+  position: relative;
+  z-index: 1;
+  padding-top: 10px;
+  border-top: 5px solid $color-green;
+  background-color: transparent;
 }
