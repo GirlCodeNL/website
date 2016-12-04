@@ -1,3 +1,5 @@
+import mediumBlog from '../imports/scripts/medium-blog';
+
 FlowRouter.route('/', {
   name: 'welcome',
   triggersEnter: [function () {
@@ -8,6 +10,15 @@ FlowRouter.route('/', {
   action: function(){
     BlazeLayout.render('content', { content: 'welcome' });
     window.document.title = 'Welcome to GirlCode tutorials!';
+  }
+});
+
+FlowRouter.route('/blog', {
+  name: 'blog',
+  triggersEnter: [],
+  action: function (params) {
+    console.log('medium blog', mediumBlog);
+    mediumBlog.init();
   }
 });
 
