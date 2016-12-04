@@ -19,11 +19,13 @@ export default class MediumBlog {
     var url = this.client.getAuthorizationUrl(this.state, this.redirectUrl, [
       medium.Scope.BASIC_PROFILE, medium.Scope.LIST_PUBLICATIONS
     ]);
+    //TODO authorize application and copy code
+    window.open(url, 'Medium Authorization', 'width=800, height=600');
 
     console.log('init medium api', url);
 
     // this.client.setAccessToken(this.accessToken);
-    this.client.exchangeAuthorizationCode('c14f9ec756a1', this.redirectUrl, (err, token) => {
+    this.client.exchangeAuthorizationCode('87f2e934b300', this.redirectUrl, (err, token) => {
       this.client.getUser((err, user) => {
         console.log(user);
         // import json with medium feeds
