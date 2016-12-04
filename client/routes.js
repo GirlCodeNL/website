@@ -17,8 +17,8 @@ FlowRouter.route('/blog', {
   name: 'blog',
   triggersEnter: [],
   action: function (params) {
-    console.log('medium blog', mediumBlog);
-    mediumBlog.init();
+    let blog = new mediumBlog();
+    blog.init();
   }
 });
 
