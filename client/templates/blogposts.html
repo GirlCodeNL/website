@@ -1,7 +1,7 @@
 <template name="blogposts">
   <section class="blogposts">
     {{#each post}}
-      <a class="newsitem" href="https://medium.com/{{uniqueSlug}}">
+      <a class="newsitem" href="{{mediumPostUrl}}" target="_blank">
         <figure class="image">
           <img src="{{image}}" alt="">
         </figure>
@@ -22,7 +22,7 @@
     {{/each}}
 
     {{#each wpPost}}
-    <a class="newsitem" href="{{URL}}/{{slug}}">
+    <a class="newsitem" href="{{URL}}/{{slug}}" target="_blank">
       <figure class="image">
         <img src="{{wpImage}}" alt="">
       </figure>

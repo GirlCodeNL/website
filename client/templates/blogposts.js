@@ -10,6 +10,9 @@ Template.blogposts.helpers({
   post() {
     return MediumPosts.find();
   },
+  mediumPostUrl(){
+    return `https://medium.com/q42bv/${this.uniqueSlug}`;
+  },
   wpPost(){
     return WpPosts.find();
   },
