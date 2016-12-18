@@ -18,8 +18,13 @@ FlowRouter.route('/blog', {
   name: 'blog',
   triggersEnter: [],
   action: function (params) {
-    let blog = new mediumBlog();
-    blog.init();
+    BlazeLayout.render('content', { content: 'blog' });
+    // let blog = new mediumBlog();
+    // blog.init();
+  },
+  subscriptions() {
+    this.register("latestMediumPosts", Meteor.subscribe("latestMediumPosts"));
+    this.register("latestWpPosts", Meteor.subscribe("latestWpPosts"));
   }
 });
 

@@ -1,0 +1,45 @@
+<template name="blogposts">
+  <section class="blogposts">
+    {{#each post}}
+      <a class="newsitem" href="https://medium.com/{{uniqueSlug}}">
+        <figure class="image">
+          <img src="{{image}}" alt="">
+        </figure>
+        <div class="col">
+          <h4>{{title}}</h4>
+          <p>{{excerpt}}</p>
+          <div class="metadata">
+            <p class="date">{{firstPublishedAt}}</p>
+            {{#if displayAuthor}}
+              <figure class="author">
+                <figcaption>{{author}}</figcaption>
+                <img src="{{author}}" alt="{{author}}">
+              </figure>
+            {{/if}}
+          </div>
+        </div>
+      </a>
+    {{/each}}
+
+    {{#each wpPost}}
+    <a class="newsitem" href="{{URL}}/{{slug}}">
+      <figure class="image">
+        <img src="{{wpImage}}" alt="">
+      </figure>
+      <div class="col">
+        <h4>{{title}}</h4>
+        <p>{{{excerpt}}}</p>
+        <div class="metadata">
+          <p class="date">{{wpDate}}</p>
+          {{#if author}}
+            <figure class="author">
+              <figcaption>{{author.nice_name}}</figcaption>
+              <img src="{{author.avatar_URL}}" alt="{{author.nice_name}}">
+            </figure>
+          {{/if}}
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </section>
+</template>

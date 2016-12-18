@@ -1,0 +1,42 @@
+@import 'variables';
+
+.newsitem {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border: none;
+  color: $color-text-light-theme;
+  width: 60vw;
+  &, & * {
+    transition: all .3s ease-in-out;
+  }
+  &:hover, &:focus {
+    h4 {
+      border-color: $color-green;
+    }
+    figure {
+      box-shadow: 0 0 10px rgba(0,0,0, .2);
+    }
+  }
+  .col {
+    flex: 0 0 40vw;
+  }
+  h4 {
+    font-size: 1.375rem;
+    margin-top: 0;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+  }
+  figure {
+    margin: 0 20px 0 0;
+    max-height: 100px;
+    flex: 0 0 15vw;
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0;
+      object-fit: cover;
+    }
+  }
+}
