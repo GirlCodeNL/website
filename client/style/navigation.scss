@@ -34,20 +34,21 @@ nav.site-nav {
     &.active {
       background: $color-active-nav;
     }
-    &.has-subnav:hover,
+    /*&.has-subnav:hover,
     &.has-subnav:focus {
       & + .subnav {
         display: flex;
         position: relative;
         z-index: 1;
       }
-    }
+    }*/
   }
   .subnav {
     display: none;
     flex-direction: column;
     background: $color-green;
-    &.expanded {
+    &.expanded,
+    &.active {
       display: flex;
       position: relative;
       z-index: 2;

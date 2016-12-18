@@ -10,8 +10,13 @@ Template.nav.helpers({
 });
 
 Template.nav.events({
-  'click li a': function (e) {
+  'click li a:not(.has-subnav)': function (e) {
     const url = e.target.getAttribute('href');
     FlowRouter.go(url);
+  },
+  'click .dropdown-button': function (e) {
+    $(e.target).dropdown({
+      belowOrigin: true
+    });
   }
 });
