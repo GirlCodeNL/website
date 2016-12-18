@@ -13,8 +13,13 @@ nav.main-nav {
 }
 .pagination,
 .main-nav ul {
-  justify-content: space-between;
   padding: 20px 0;
+  li {
+    margin-right: 20px;
+  }
+}
+.pagination {
+  justify-content: space-between;
 }
 
 nav.site-nav {
@@ -34,20 +39,13 @@ nav.site-nav {
     &.active {
       background: $color-active-nav;
     }
-    &.has-subnav:hover,
-    &.has-subnav:focus {
-      & + .subnav {
-        display: flex;
-        position: relative;
-        z-index: 1;
-      }
-    }
   }
   .subnav {
     display: none;
     flex-direction: column;
     background: $color-green;
-    &.expanded {
+    &.expanded,
+    &.active {
       display: flex;
       position: relative;
       z-index: 2;

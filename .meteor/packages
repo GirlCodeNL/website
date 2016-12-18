@@ -26,5 +26,5 @@ kadira:blaze-layout
 fourseven:scss
 utilities:compile-svg
 shell-server
-materialize:materialize@=0.97.0
 universe:modules
+girlcode:materialize
