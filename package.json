@@ -1,0 +1,28 @@
+{
+  "name": "girlcode-website",
+  "version": "1.0.0",
+  "description": "Website of the Girl Code initiative",
+  "main": "main.js",
+  "dependencies": {
+    "babel-runtime": "^6.20.0"
+  },
+  "devDependencies": {
+    "babel-runtime": "^6.20.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://afkatja@github.com/GirlCodeNL/website.git"
+  },
+  "keywords": [
+    "girlcode"
+  ],
+  "author": "Katja Hollaar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GirlCodeNL/website/issues"
+  },
+  "homepage": "https://github.com/GirlCodeNL/website#readme"
+}
