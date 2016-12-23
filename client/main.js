@@ -14,9 +14,4 @@ Template.nav.events({
     const url = e.target.getAttribute('href');
     FlowRouter.go(url);
   },
-  'click .dropdown-button': function (e) {
-    $(e.target).dropdown({
-      belowOrigin: true
-    });
-  }
 });
