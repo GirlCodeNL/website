@@ -1,5 +1,5 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import mediumBlog from '../imports/scripts/medium-blog';
+import utils from '../imports/scripts/utils';
 
 FlowRouter.route('/', {
   name: 'welcome',
