@@ -3,9 +3,12 @@
 nav.main-nav {
   background: none;
   box-shadow: none;
-  li.active button {
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5) inset;
-    color: $color-green-dark;
+  li.active {
+    background: none;
+    button {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5) inset;
+      color: $color-green-dark;
+    }
   }
 }
 .pagination,
@@ -47,7 +50,7 @@ nav.site-nav {
     &.expanded {
       display: flex;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     li {
       display: block;
