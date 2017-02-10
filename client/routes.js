@@ -1,5 +1,5 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import utils from '../imports/scripts/utils';
+import { classListHelper } from '../imports/scripts/utils';
 
 FlowRouter.route('/', {
   name: 'welcome',

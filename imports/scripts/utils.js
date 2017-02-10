@@ -1,4 +1,4 @@
-classListHelper = function classListHelper(element) {
+export function classListHelper(element) {
   let list = element.classList;
   console.log(list);
 
