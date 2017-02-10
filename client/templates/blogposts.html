@@ -1,6 +1,6 @@
 <template name="blogposts">
   <section class="blogposts">
-    {{#each post}}
+    {{#each posts}}
       <a class="newsitem" href="{{mediumPostUrl}}" target="_blank">
         <figure class="image">
           <img src="{{image}}" alt="">
@@ -21,7 +21,7 @@
       </a>
     {{/each}}
 
-    {{#each wpPost}}
+    {{#each wpPosts}}
     <a class="newsitem" href="{{URL}}/{{slug}}" target="_blank">
       <figure class="image">
         <img src="{{wpImage}}" alt="">
