@@ -23,7 +23,7 @@
     }
   }
   .col {
-    flex: 1 1 40vw;
+    flex: 1 1 30rem;
   }
   h4 {
     font-size: 1.375rem;
@@ -37,7 +37,7 @@
   figure {
     margin: 0 20px 0 0;
     max-height: 100%;
-    flex: 0 1 15vw;
+    flex: 1 1 15rem;
     img {
       width: 100%;
       height: 100%;
@@ -46,5 +46,9 @@
       object-fit: contain;
       object-position: center;
     }
+  }
+
+  @include media-query-max($breakpoint-tablet-portrait) {
+    width: 100%;
   }
 }
