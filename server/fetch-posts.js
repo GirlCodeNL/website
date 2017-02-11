@@ -16,7 +16,6 @@ const fetchPostsByTagFromMedium = () => {
     if (json.success) {
       MediumPosts.remove({});
       json.payload.value.slice(0, 3).forEach(function(post) {
-        console.log(post);
         const { title, virtuals, firstPublishedAt, uniqueSlug, displayAuthor, detectedLanguage } = post;
         let image = virtuals.previewImage;
         MediumPosts.insert({

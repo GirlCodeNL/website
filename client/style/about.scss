@@ -4,8 +4,13 @@
   display: flex;
   flex-wrap: wrap;
   .bio {
-    flex: 1 1 300px;
+    flex: 1 1 20rem;
     padding: 20px;
+    margin-right: 20px;
+    background: #fff;
+    &:last-child {
+      margin-right: 0;
+    }
     figure {
       text-align: left;
       padding: 0;
@@ -16,7 +21,7 @@
       }
       figcaption {
         display: block;
-        text-align: center;;
+        text-align: center;
         height: 34px;
         padding: 10px 10px 0;
         margin: -34px 0 0 0;
@@ -29,7 +34,7 @@
     }
     blockquote {
       display: block;
-      &:after {
+      &::after {
         top: auto;
         position: static;
       }
@@ -38,13 +43,24 @@
 }
 .gallery {
   flex-wrap: wrap;
-  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-right: -20px;
   li {
-    flex: 1 0 300px;
-    padding: 20px;
+    flex: 1 1 20rem;
+    max-width: 20rem;
+    margin: 20px;
+    background: #fff;
+  }
+  figure, img {
+    margin: 0;
+    display: block;
+  }
+  figcaption {
+    margin-right: 10px;
   }
   .description {
     font-size: 14px;
     text-align: center;
+    padding: 10px;
   }
 }

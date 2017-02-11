@@ -6,11 +6,15 @@
 
 .page-container {
   width: 90vw;
+  max-width: 70rem;
   flex: 1 0 auto;
   position: relative;
   z-index: 1;
   @include clearfix;
   padding-top: 30px;
+  @include media-query-max($breakpoint-tablet-landscape) {
+    max-width: 100%;
+  }
 }
 
 .logo {
