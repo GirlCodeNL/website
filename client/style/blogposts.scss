@@ -31,8 +31,14 @@
     border-bottom: 2px solid transparent;
     display: inline-block;
   }
-  .date {
+  .date, .lang {
     color: $color-gray;
+    display: inline-block;
+    margin-right: .5rem;
+    margin-top: 0;
+  }
+  .lang {
+    text-transform: uppercase;
   }
   figure {
     margin: 0 20px 0 0;
