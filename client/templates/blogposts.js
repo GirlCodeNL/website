@@ -28,7 +28,7 @@ Template.blogposts.helpers({
     const d = new Date(this.firstPublishedAt);
     return `${d.getDate()} - ${d.getMonth() + 1} - ${d.getFullYear()}`;
   },
-  posts() {
+  mediumPosts() {
     return MediumPosts.find();
   },
   mediumPostUrl(){

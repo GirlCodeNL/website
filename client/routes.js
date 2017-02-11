@@ -19,12 +19,9 @@ FlowRouter.route('/blog', {
   triggersEnter: [],
   action: function (params) {
     BlazeLayout.render('content', { content: 'blog' });
-    // let blog = new mediumBlog();
-    // blog.init();
   },
   subscriptions() {
     this.register("latestMediumPosts", Meteor.subscribe("latestMediumPosts"));
-    this.register("latestWpPosts", Meteor.subscribe("latestWpPosts"));
   }
 });
 
