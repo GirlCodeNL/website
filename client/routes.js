@@ -1,5 +1,5 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import utils from '../imports/scripts/utils';
+import { classListHelper } from '../imports/scripts/utils';
 
 FlowRouter.route('/', {
   name: 'welcome',
@@ -19,12 +19,9 @@ FlowRouter.route('/blog', {
   triggersEnter: [],
   action: function (params) {
     BlazeLayout.render('content', { content: 'blog' });
-    // let blog = new mediumBlog();
-    // blog.init();
   },
   subscriptions() {
     this.register("latestMediumPosts", Meteor.subscribe("latestMediumPosts"));
-    this.register("latestWpPosts", Meteor.subscribe("latestWpPosts"));
   }
 });
 
