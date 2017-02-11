@@ -1,6 +1,5 @@
 export function classListHelper(element) {
   let list = element.classList;
-  console.log(list);
 
   return {
     toggle: function(classNames){list.toggle(classNames); return this;},
