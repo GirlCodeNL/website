@@ -1,0 +1,49 @@
+<template name="blogposts">
+  <section class="blogposts">
+    <h3>Medium posts</h3>
+    {{#each mediumPosts}}
+      <a class="newsitem" href="{{mediumPostUrl}}" target="_blank">
+        <figure class="image">
+          <img src="{{image}}" alt="">
+        </figure>
+        <div class="col">
+          <h4>{{title}}</h4>
+          <p>{{excerpt}}</p>
+          <div class="metadata">
+            <p class="date">{{firstPublishedAt}}</p>
+            <p class="lang">({{detectedLanguage}})</p>
+            {{#if displayAuthor}}
+              <figure class="author">
+                <figcaption>{{author}}</figcaption>
+                <img src="{{author}}" alt="{{author}}">
+              </figure>
+            {{/if}}
+          </div>
+        </div>
+      </a>
+    {{/each}}
+  </section>
+  <section>
+    <h3>Ineke's blogposts</h3>
+    {{#each wpPosts}}
+    <a class="newsitem" href="{{URL}}/{{slug}}" target="_blank">
+      <figure class="image">
+        <img src="{{wpImage}}" alt="">
+      </figure>
+      <div class="col">
+        <h4>{{title}}</h4>
+        <p>{{{excerpt}}}</p>
+        <div class="metadata">
+          <p class="date">{{wpDate}}</p>
+          {{#if author}}
+            <figure class="author">
+              <figcaption>{{author.nice_name}}</figcaption>
+              <img src="{{author.avatar_URL}}" alt="{{author.nice_name}}">
+            </figure>
+          {{/if}}
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </section>
+</template>

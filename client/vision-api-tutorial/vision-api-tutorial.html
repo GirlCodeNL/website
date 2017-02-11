@@ -29,13 +29,13 @@
   <p>To be able to send an image via the browser we have to convert it in the correct format. So in this step we are going to encode the image with base64. This actually converts an image which is made up out of bytes into text. In this way it easily can be send via the browser. So let's get started.</p>
   <p>To be sure of the resuls, first try one of these images:</p>
   <ul>
-    <li><img src="/face.jpg" alt="" width="100"> Use: face detection</li>
-    <li><img src="/kristin.jpg" alt="" width="100"> Use: face detection</li>
-    <li><img src="/cat.jpg" alt="" width="100"> Use: label detection</li>
-    <li><img src="/moselle.jpg" alt="" width="100"> Use: landmark detection</li>
-    <li><img src="/so-long.jpg" alt="" width="100"> Use: text detection</li>
-    <li><img src="/staatsloterij-logo.jpg" alt="" width="100"> Use: logo detection</li>
-    <li><img src="/turkishdelight.jpg" alt="" width="100"> Use: safe search detection</li>
+    <li><img src="/images/face.jpg" alt="" width="100"> Use: face detection</li>
+    <li><img src="/images/kristin.jpg" alt="" width="100"> Use: face detection</li>
+    <li><img src="/images/cat.jpg" alt="" width="100"> Use: label detection</li>
+    <li><img src="/images/moselle.jpg" alt="" width="100"> Use: landmark detection</li>
+    <li><img src="/images/so-long.jpg" alt="" width="100"> Use: text detection</li>
+    <li><img src="/images/staatsloterij-logo.jpg" alt="" width="100"> Use: logo detection</li>
+    <li><img src="/images/turkishdelight.jpg" alt="" width="100"> Use: safe search detection</li>
   </ul>
   <p>It seems that the API only accepts jpg files and they have to be not too large.</p>
   <p>Encode image to base64 and copy data to clipboard by running the following code from your command line (edit the path to image):</p>
@@ -69,7 +69,7 @@
       ]}
   {{/prism}}
   <figure>
-    <img src="/postman.png" alt="postman">
+    <img src="/images/postman.png" alt="postman">
     <figcaption>This is what your Postman window should look like with the data entered</figcaption>
   </figure>
   <p>Click <code>Send</code> and see the result of the analysis. You get a response in JSON format which contains entries of several levels of information. In our case, we have <code>mid</code>, <code>description</code> and <code>score</code>. <code>mid</code> is a unique id of the entry in the Knowledge Graph. <code>Score</code> can be a floating number between 0 and 1. Read more about response for various features <a href="https://cloud.google.com/vision/reference/rest/v1/images/annotate#EntityAnnotation">here</a></p>
